@@ -23,9 +23,32 @@ class Counter {
      */
     private function generterNumber($start,$end){
         for($i= $start; $i < $end+1; $i++){
+            //check the number dividable
+            $msg = $this->numberCheck($i);
             //show the result
-            $this->displayResult($i);
+            $this->displayResult($msg);
         }
+    }
+
+    /*
+     * check the number dividable
+     */
+    private function numberCheck($number){
+        $result = '';
+        if (($number % 3) == 0){
+            $result .= 'triple';
+        }
+
+        if (($number % 5) == 0){
+            $result .= 'five';
+        }
+
+        if (!empty($result)){
+            $msg = (string) $number. ' '.$result;
+        }else{
+            $msg = (string) $number;
+        }
+        return $msg;
     }
 
     /**
